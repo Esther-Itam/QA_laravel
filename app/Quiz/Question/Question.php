@@ -1,6 +1,7 @@
 <?php namespace App\Quiz\Question;
 
 use Illuminate\Support\Facades\App;
+use App\Quiz\Interfaces\QuestionRepositoryInterface;
 
 class Question{
 

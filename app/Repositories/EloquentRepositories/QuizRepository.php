@@ -1,7 +1,7 @@
 <?php namespace App\Repositories\FileRepositories;
 
 use App\Repositories\EloquentRepositories\Presenters\QuizAdapter;
-use App\Quiz\Interface\QuizRepositoryInterface;
+use App\Quiz\Interfaces\QuizRepositoryInterface;
 
 class QuizRepository implements QuizRepositoryInterface
 {

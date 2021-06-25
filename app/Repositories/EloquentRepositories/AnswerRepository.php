@@ -1,6 +1,6 @@
 <?php namespace App\Repositories\EloquentRepositories;
 
-use App\Quiz\Interface\AnswerRepositoryInterface;
+use App\Quiz\Interfaces\AnswerRepositoryInterface;
 use App\Models\Question as Question;
 use App\Models\Answer as Answer;
 

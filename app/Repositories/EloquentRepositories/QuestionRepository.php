@@ -1,8 +1,7 @@
 <?php namespace App\Repositories\EloquentRepositories;
-
 use App\Models\Question as Question;
 use App\Presenters\QuestionPresenter;
-use App\Quiz\Interface\QuestionRepositoryInterface;
+use App\Quiz\Interfaces\QuestionRepositoryInterface;
 
 //Les méthodes public du Repository ne doivent pas retourner de modèle. Soit des tableaux, soit des classes métiers
 
