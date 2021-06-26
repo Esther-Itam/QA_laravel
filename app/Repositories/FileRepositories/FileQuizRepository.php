@@ -1,12 +1,13 @@
 <?php namespace App\Repositories\FileRepositories;
 
-use App\Repositories\FileRepositories\Presenters\QuizAdapter;
-use App\Quiz\Interface\QuizRepositoryInterface;
+use App\Repositories\FileRepositories\Presenter\QuizPresenter;
+use App\Quiz\Interfaces\QuizRepositoryInterface;
 
 class QuizRepository implements QuizRepositoryInterface
 {
     protected string $file;
     protected $presenter;
+    
 
     public function __construct($file = 'questions.json')
     {
@@ -19,8 +20,8 @@ class QuizRepository implements QuizRepositoryInterface
     public function fetch():array{
         $questions = json_decode(file_get_contents($this->file, true), true);
       	$preparedQuestions = [];
-      	foreach($questions as $q)
-	        $preparedQuestions[] = $this->presenter->present($content);
+      	foreach($questions as $question)
+	        $preparedQuestions[] = $this->presenter->present($question);
       	return $preparedQuestions;
     }
 

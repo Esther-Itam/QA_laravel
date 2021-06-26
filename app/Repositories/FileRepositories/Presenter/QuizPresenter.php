@@ -1,13 +1,13 @@
-<?php namespace App\Repositories\FileRepositories\Presenters;
+<?php namespace App\Repositories\FileRepositories\Presenter;
 
 class QuizPresenter
 {
-    public function present($data):array
+    public function present($question):array
     {
         return [
-            'label' => $data->label,
-            'type' => $data->type,
-            'answers' => $this->prepareAnswersArray($data->data)
+            'label' => $question['data']['label'],
+            'type' => $question['type'],
+            'answers' => $this->prepareAnswersArray($question['data'])
         ];
     }
 
