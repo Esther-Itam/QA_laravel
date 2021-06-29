@@ -1,6 +1,5 @@
-<?php namespace App\Repositories\FileRepositories;
+<?php namespace App\Repositories\EloquentRepositories;
 use Illuminate\Support\Facades\DB;
-
 use App\Repositories\EloquentRepositories\Presenter\QuizPresenter;
 use App\Quiz\Interfaces\QuizRepositoryInterface;
 

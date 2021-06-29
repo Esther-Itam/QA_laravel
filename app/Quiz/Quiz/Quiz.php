@@ -1,4 +1,5 @@
 <?php
+namespace App\Quiz\Quiz;
 use \App\Quizz\Question\RepositoryInterface as QuestionRepositoryInterface;
 class Quiz
 {
@@ -16,5 +17,7 @@ $question->save();
 }
 
 public function getRandomQuestion(){
+    $randomIndex = array_rand($this->questions, 1);
+    return $this->questions[$randomIndex];
 }
 }
