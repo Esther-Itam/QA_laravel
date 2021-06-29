@@ -13,7 +13,7 @@ class QuizRepository implements QuizRepositoryInterface
         $this->presenter = new QuizPresenter();
     }
 
-    //récupère les données de la base de données et les envoie à la méthode present() du présentateur à formater 
+    //récupère les données de la base de données des tables answers et questions et les envoie au présentateur pour les formater 
     public function fetch():array{
         $questions = DB::table('questions')
             ->join('answers', 'questions.id', '=', 'answers.question_id')
@@ -22,7 +22,7 @@ class QuizRepository implements QuizRepositoryInterface
                      )
             ->get();
 
-
+        
 	    $preparedQuestions = $this->presenter->present($questions);
       	return $preparedQuestions;    
     }

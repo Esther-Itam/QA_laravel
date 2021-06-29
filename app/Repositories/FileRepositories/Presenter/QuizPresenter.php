@@ -1,7 +1,7 @@
 <?php namespace App\Repositories\FileRepositories\Presenter;
 
 class QuizPresenter
-{
+{   //récupère le tableau créé par FileQuizRepository à partir du json et le formate dans le type de tableau voulu
     public function present($question):array
     {
         return [

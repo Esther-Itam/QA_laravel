@@ -1,6 +1,6 @@
 <?php
 use \App\Quizz\Question\RepositoryInterface as QuestionRepositoryInterface;
-class Quizz
+class Quiz
 {
 protected array $questions = [];
 

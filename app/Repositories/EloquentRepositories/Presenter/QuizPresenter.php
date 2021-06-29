@@ -2,11 +2,11 @@
 
 class QuizPresenter
 {
-    public function present($data):array
+    public function present($questions):array
     {
        return[
            
-       ]
+       ];
     }
 
 }

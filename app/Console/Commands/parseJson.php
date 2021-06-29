@@ -3,6 +3,9 @@
 namespace App\Console\Commands;
 use App\Quiz\Quiz\QuizFactory;
 use Illuminate\Console\Command;
+use App\Quiz\Answer\AnswerFactoryDirector;
+use App\Repositories\EloquentRepositories\QuestionRepository;
+use App\Repositories\FileRepositories\FileQuizRepository;
 
 class parseJson extends Command
 {
@@ -11,14 +14,14 @@ class parseJson extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'parse:json';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'parser le json';
 
     /**
      * Create a new command instance.
@@ -37,7 +40,14 @@ class parseJson extends Command
      */
     public function handle()
     {
-        $quiz=new QuizFactory();
+        //instancier un nouveau quiz grâce à quizFactory
+        //Afin de créer et gérer le quiz, celle-ci aura besoin de FileQuizRepository, QuestionRepository et AnswerFactoryDirector
+        $quiz=new QuizFactory(new FileQuizRepository(), new QuestionRepository(), new AnswerFactoryDirector());
+
+        //Créer le Quiz
+        $quiz=
         
+        //on appelle la méthode save() de quiz pour tout mettre en db
+        $quiz->save();
     }
 }

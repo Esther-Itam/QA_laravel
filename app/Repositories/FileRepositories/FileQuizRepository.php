@@ -3,7 +3,7 @@
 use App\Repositories\FileRepositories\Presenter\QuizPresenter;
 use App\Quiz\Interfaces\QuizRepositoryInterface;
 
-class QuizRepository implements QuizRepositoryInterface
+class FileQuizRepository implements QuizRepositoryInterface
 {
     protected string $file;
     protected $presenter;
@@ -18,6 +18,7 @@ class QuizRepository implements QuizRepositoryInterface
     }
 
     public function fetch():array{
+        //récupère les données du json et boucle dans un tableau chaque question et l'envoie au presenter
         $questions = json_decode(file_get_contents($this->file, true), true);
       	$preparedQuestions = [];
       	foreach($questions as $question)
