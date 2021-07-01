@@ -14,7 +14,7 @@ class QuestionSeeder extends Seeder
     public function run()
     {
         DB::table('questions')->insert([
-            'label' => "",
+            'label' => "c'est une question",
             'type' => 'radio',
         ]);
     }

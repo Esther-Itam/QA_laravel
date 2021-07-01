@@ -19,6 +19,7 @@ class Question{
         $this->answers  = $question['answers'];
         $this->type     = $question['type'];
         $this->label    = $question['label'];
+       
         $this->repository  = $repository;
     }
 
@@ -89,11 +90,28 @@ class Question{
     protected function answersToArray():array
     {
       	$answers = [];
+        
         foreach($this->answers as $a)
           $answers[] = $a->toArray();
+         
       	return $answers;
     }
 
+    public function toArray(){
+        $answers = $this->answers;
+        
+        $answersArray = [];
+            foreach($answers as $answer){
+                  
+            $answersArray [] = $answer->toArray();
+         
+            }
+            return $questionArray [] = [
+                'label' => $this->label,
+                'type' => $this->type,
+                'answers' => $answersArray
+            ];
+    }
     public function render(){
     }
 }

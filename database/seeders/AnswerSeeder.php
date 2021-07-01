@@ -15,7 +15,7 @@ class AnswerSeeder extends Seeder
     public function run()
     {
         DB::table('answers')->insert([
-            'label' => "",
+            'label' => "c'est une réponse",
             'is_valid' => true
         ]);
     }

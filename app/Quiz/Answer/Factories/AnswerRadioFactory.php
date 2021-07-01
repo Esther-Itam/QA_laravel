@@ -10,12 +10,12 @@ class AnswerRadioFactory extends AnswerFactory implements AnswerInterfaceFactory
         $this->answer =$answer;
     }
     //la factory permet d'instancier un type de réponse particulière
-    public function createAnswers(){
+    protected function createAnswer(){
         return new AnswerRadio($this->answer);
     }
 
     //renvoie la valeur 
-    public function getAnswers(){
-        return $this->createAnswers();
+    public function getAnswer(){
+        return $this->createAnswer();
     }
 }

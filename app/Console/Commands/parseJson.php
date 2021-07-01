@@ -5,8 +5,8 @@ use App\Quiz\Quiz\QuizFactory;
 use Illuminate\Console\Command;
 use App\Quiz\Answer\AnswerFactoryDirector;
 use App\Repositories\EloquentRepositories\QuestionRepository;
-use App\Repositories\FileRepositories\FileQuizRepository;
-use App\Quiz\Quiz\Quiz;
+use App\Repositories\EloquentRepositories\QuizRepository;
+
 
 class parseJson extends Command
 {
@@ -43,7 +43,7 @@ class parseJson extends Command
     {
         //instancier un nouveau quiz grâce à quizFactory
         //Afin de créer et gérer le quiz, celle-ci aura besoin de FileQuizRepository, QuestionRepository et AnswerFactoryDirector
-        $factory=new QuizFactory(new FileQuizRepository(), new QuestionRepository(), new AnswerFactoryDirector());
+        $factory=new QuizFactory(new QuizRepository(), new AnswerFactoryDirector(), new QuestionRepository());
 
         //instancier le Quiz par la méthode getQuiz() de QuizFactory
         $quiz = $factory->getQuiz();

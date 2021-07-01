@@ -2,13 +2,10 @@
 namespace App\Quiz\Answer;
 use App\Quiz\Answer\Factories\AnswerInterfaceFactory;
 
-class AnswerFactory implements AnswerInterfaceFactory{
+abstract class AnswerFactory implements AnswerInterfaceFactory{
     
     //renvoie la valeur 
-    public function getAnswers(){
-
-    }
-    public function createAnswers(){
-    }
+    abstract public function getAnswer();
+    abstract protected function createAnswer();
 
 }

@@ -7,7 +7,7 @@ use App\Quiz\Answer\Factories\AnswerTextFactory;
 //AnswerFactoryDirector permet d'instancier la bonne factory en fonction du type de réponse
 class AnswerFactoryDirector{
     
-public function getTypeAnswers($type, $answer){
+public function getTypeAnswers($answer, $type){
     switch ($type) {
         case 'radio':
             return new AnswerRadioFactory($answer);

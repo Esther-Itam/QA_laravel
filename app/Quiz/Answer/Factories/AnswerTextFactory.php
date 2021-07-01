@@ -8,15 +8,20 @@ class AnswerTextFactory extends AnswerFactory implements AnswerInterfaceFactory{
 
     //récupère le tableau de answer de AnswerFactoryDirector
     public function __construct($answer){
+       
         $this->answer =$answer;
+         
     }
     //la factory permet d'instancier un type de réponse particulière
-    public function createAnswers(){
+    protected function createAnswer(){
+        //dd($this->answer);
         return new AnswerText($this->answer);
+       
     }
 
     //renvoie la valeur 
-    public function getAnswers(){
-        return $this->createAnswers();
+    public function getAnswer(){
+       
+        return $this->createAnswer();
     }
 }

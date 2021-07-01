@@ -1,6 +1,7 @@
 <?php namespace App\Quiz\Answer;
+use App\Quiz\Answer\Type\AnswerInterface;
 
-abstract class Answer{
+abstract class Answer implements AnswerInterface{
 
 
     protected $label = '';
@@ -15,9 +16,11 @@ abstract class Answer{
      */
     public function __construct($answer)
     {
+       
       $this->label= $answer['label'];
       $this->is_valid= $answer['is_valid'];
       $this->id= $answer['id'] ?? '';
+      
     }
 
     /**
@@ -25,6 +28,7 @@ abstract class Answer{
      */
     public function toArray():array
     {
+      
         return [
             'label' => $this->label,
             'is_valid' => $this->is_valid,
