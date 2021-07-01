@@ -2,7 +2,7 @@
 
 class QuizPresenter
 {
-    //this method returns an array of question data formatted as needed 
+    //cette méthode renvoie un tableau de données de questions formatées selon les besoins 
     public function present($answersAndQuestions):array
     {
         return $this->extractQuestions($answersAndQuestions);
@@ -28,15 +28,16 @@ class QuizPresenter
         return $this->assignAnswers($answersAndQuestions, $groupedQuestions);
     }
 
-    //assigns answers to each questions and returns them into an array
+    //attribue des réponses à chaque question et les renvoie dans un tableau
     protected function assignAnswers($questions, $groupedQuestions):array
     {
         foreach ($questions as $question) {
             foreach ($groupedQuestions as &$groupedQuestion) {
                 if ($question->questionLabel === $groupedQuestion['label']) {
-                    $groupedQuestion['answers'] [] = ['label' => $question->answerLabel,
-                                                    'is_valid' => $question->is_valid,
-                                                    'id' =>  $question->id
+                    $groupedQuestion['answers'] [] = [
+                                                        'label' => $question->answerLabel,
+                                                        'is_valid' => $question->is_valid,
+                                                        'id' =>  $question->id
                                                     ];
                 }
             }
