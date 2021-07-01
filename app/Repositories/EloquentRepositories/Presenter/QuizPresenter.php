@@ -8,7 +8,7 @@ class QuizPresenter
         return $this->extractQuestions($answersAndQuestions);
     }
 
-    //loops through the array of questions and answers retrieved from database to return an array formatted as required to be send to the factory. 
+    //parcourt le tableau de questions et answers extrait de la db pour renvoyer un tableau formaté selon les besoins pour être envoyé à la factory. 
     protected function extractQuestions($answersAndQuestions):array
     {
         $uniqueQuestions = [];
