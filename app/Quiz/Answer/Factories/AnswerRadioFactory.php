@@ -4,7 +4,7 @@ use App\Quiz\Answer\AnswerFactory;
 use App\Quiz\Answer\Type\AnswerRadio;
 
 class AnswerRadioFactory extends AnswerFactory implements AnswerInterfaceFactory{
-    protected $answer;
+    protected array $answer;
   //récupère le tableau de answer de AnswerFactoryDirector
     public function __construct($answer){
         $this->answer =$answer;

@@ -11,39 +11,39 @@ class QuizPresenter
     //parcourt le tableau de questions et answers extrait de la db pour renvoyer un tableau formaté selon les besoins pour être envoyé à la factory. 
     protected function extractQuestions($answersAndQuestions):array
     {
-        $uniqueQuestions = [];
-        $groupedQuestions = [];
+        $oneQuestion = [];
+        $multiQuestions = [];
 
         foreach ($answersAndQuestions as $answersAndQuestion) {
-            if (!in_array($answersAndQuestion->questionLabel, $uniqueQuestions)) {
-                $uniqueQuestions [] = $answersAndQuestion->questionLabel;
-                array_push($groupedQuestions, ['label' => $answersAndQuestion->questionLabel,
-                                                'type' => $answersAndQuestion->questionType,
-                                                'answers' => []
+            if (!in_array($answersAndQuestion->questionLabel, $oneQuestion)) {
+                $oneQuestion [] = $answersAndQuestion->questionLabel;
+                array_push($multiQuestions, ['label' => $answersAndQuestion->questionLabel,
+                                             'type' => $answersAndQuestion->questionType,
+                                             'answers' => []
                                                 ]
                 );
             }
         }
 
-        return $this->assignAnswers($answersAndQuestions, $groupedQuestions);
+        return $this->assignAnswers($answersAndQuestions, $multiQuestions);
     }
 
     //attribue des réponses à chaque question et les renvoie dans un tableau
-    protected function assignAnswers($questions, $groupedQuestions):array
+    protected function assignAnswers($questions, $multiQuestions):array
     {
         foreach ($questions as $question) {
-            foreach ($groupedQuestions as &$groupedQuestion) {
-                if ($question->questionLabel === $groupedQuestion['label']) {
-                    $groupedQuestion['answers'] [] = [
-                                                        'label' => $question->answerLabel,
-                                                        'is_valid' => $question->is_valid,
-                                                        'id' =>  $question->id
+            foreach ($multiQuestions as &$multiQuestion) {
+                if ($question->questionLabel === $multiQuestion['label']) {
+                    $multiQuestion['answers'] [] = [
+                                                     'label' => $question->answerLabel,
+                                                     'is_valid' => $question->is_valid,
+                                                     'id' =>  $question->id
                                                     ];
                 }
             }
         }
     
-        return $groupedQuestions;
+        return $multiQuestions;
     }
 
 }
